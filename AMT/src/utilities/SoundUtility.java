@@ -1,4 +1,4 @@
-package Utilities;
+package utilities;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,7 +20,8 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import Core.IncProcessor;
+import core.IncProcessor;
+
 
 
 /**

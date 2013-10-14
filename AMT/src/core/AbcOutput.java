@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 import abc.notation.Tune;
 import abc.parser.TuneParser;
@@ -7,7 +7,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import Utilities.SoundUtility;
+import utilities.SoundUtility;
+
 
 /**
  * 

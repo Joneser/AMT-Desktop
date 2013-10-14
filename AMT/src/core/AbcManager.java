@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
  * 
  * @author davidjones
  *

@@ -1,11 +1,12 @@
-package Core;
+package core;
 
 import edu.emory.mathcs.jtransforms.fft.FloatFFT_1D;
 import java.io.*;
 import javax.sound.sampled.*;
 
-import Utilities.MathUtility;
-import Utilities.SoundUtility;
+import utilities.MathUtility;
+import utilities.SoundUtility;
+
 
 
 /**

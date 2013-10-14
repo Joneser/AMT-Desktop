@@ -1,9 +1,10 @@
-package test;
+package test.utilities;
 
 import static org.junit.Assert.*;
-import Utilities.MathUtility;
 
 import org.junit.Test;
+
+import utilities.MathUtility;
 
 public class MathUtilityTest {
 

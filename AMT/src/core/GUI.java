@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -65,7 +65,7 @@ public class GUI extends javax.swing.JFrame
     private static JComboBox mode;
     private static ImageIcon a = new ImageIcon("Images/Music-icon.png");
 
-    public static String directory = "/Users/davidjones/Automatic Music Transcription/src/examples/Media";
+    public static String directory = "";
 
     /**
      * 
@@ -74,6 +74,15 @@ public class GUI extends javax.swing.JFrame
      */
     public GUI() throws FileNotFoundException, IOException
     {
+    	
+    	String OS = System.getProperty("os.name").toLowerCase();
+    	// Set directory depending on OS       
+		if (OS.indexOf("win") >= 0) {
+			directory = "C:\\Users\\David\\git\\AMT-Desktop\\AMT\\src\\testmedia";
+		} else if (OS.indexOf("mac") >= 0) {
+			directory = "/Users/davidjones/Automatic Music Transcription/src/examples/Media";
+		} 
+    	
         initComponents();
 
         abcFiles = FileRetriever.getFiles(directory);

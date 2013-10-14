@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,8 +9,9 @@ import java.util.List;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import Utilities.MathUtility;
-import Utilities.SoundUtility;
+import utilities.MathUtility;
+import utilities.SoundUtility;
+
 import edu.emory.mathcs.jtransforms.fft.FloatFFT_1D;
 
 
