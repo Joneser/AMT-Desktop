@@ -218,20 +218,26 @@ public class GUI extends javax.swing.JFrame
                 }
             }
         });
-
-        final ImageIcon one = new ImageIcon("Images/Sheet-Music.jpg");
+        String path = "../images/Sheet-Music.jpg";
+        java.net.URL imgURL = getClass().getResource(path);
+        ImageIcon one = null;
+        if (imgURL != null) {
+        	System.out.println("Successfully loaded image");
+            one = new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+        }    
 
         contentPane.setIcon(one);
         contentPane.setLayout(new BorderLayout());
         add(contentPane);
         setContentPane(contentPane);
 
-        //tunePane.setViewportView(TuneOutput);
         jLabel1.setText("Processing Information:");
 
         jLabel2.setText("Select Input Type:");
         final GroupLayout layout = new GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        
         layout.setHorizontalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -290,11 +296,8 @@ public class GUI extends javax.swing.JFrame
                 .addGap(6, 6, 6)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(displayButton)
-                                                        .addComponent(jLabel2)
-
-                    .addComponent(mode, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-)
+                    .addComponent(displayButton).addComponent(jLabel2)
+                    .addComponent(mode, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(isAudio)
                     .addComponent(audioLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
@@ -302,8 +305,11 @@ public class GUI extends javax.swing.JFrame
                     .addComponent(isSheet)
                     .addComponent(sheetLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
         );
-        setResizable(true);
+        getContentPane().setLayout(layout);
+        setResizable(false);
         pack();
+        setSize(480, 320);
+
     }
 
     /**
