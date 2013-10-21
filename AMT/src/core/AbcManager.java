@@ -89,7 +89,17 @@ public class AbcManager
      */
     public static void createAbcFile(final List<String> abcData, final String tuneName) throws IOException
     {
-        final BufferedWriter fileOut = new BufferedWriter(new FileWriter(new File("/Users/davidjones/Automatic Music Transcription/src/examples/Media/" + tuneName + ".abc")));
+    	
+        String directoryPath = "";
+        
+        String OS = System.getProperty("os.name").toLowerCase();
+        if(OS.indexOf("win") >= 0) {
+        	directoryPath = "C:\\Users\\David\\git\\AMT-Desktop\\AMT\\src\\testmedia\\";
+        } else if(OS.indexOf("mac") >= 0) {
+        	directoryPath = "/Users/davidjones/Automatic Music Transcription/src/testmedia/";
+        }
+        
+        final BufferedWriter fileOut = new BufferedWriter(new FileWriter(new File(directoryPath + tuneName + ".abc")));
 
         // Begin Writing File Header.
         fileOut.write("X:0\n");
