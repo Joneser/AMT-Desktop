@@ -336,6 +336,7 @@ public class GUI extends javax.swing.JFrame
         tuneOutput.add(score);
         tunePane.setViewportView(tuneOutput);
         myFrame.pack();
+        myFrame.setSize(1024, 768);
         myFrame.setVisible(true);
 
     }
