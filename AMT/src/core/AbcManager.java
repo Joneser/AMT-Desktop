@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import utilities.FileUtility;
+
 /**
  * 
  * @author davidjones
@@ -87,19 +89,8 @@ public class AbcManager
      * @param tuneName {String} This is the name of the file to be produced as defined by the user in the GUI.
      * @throws IOException
      */
-    public static void createAbcFile(final List<String> abcData, final String tuneName) throws IOException
-    {
-    	
-        String directoryPath = "";
-        
-        String OS = System.getProperty("os.name").toLowerCase();
-        if(OS.indexOf("win") >= 0) {
-        	directoryPath = "C:\\Users\\David\\git\\AMT-Desktop\\AMT\\src\\testmedia\\";
-        } else if(OS.indexOf("mac") >= 0) {
-        	directoryPath = "/Users/davidjones/Automatic Music Transcription/src/testmedia/";
-        }
-        
-        final BufferedWriter fileOut = new BufferedWriter(new FileWriter(new File(directoryPath + tuneName + ".abc")));
+    public static void createAbcFile(final List<String> abcData, final String tuneName) throws IOException {        
+        final BufferedWriter fileOut = new BufferedWriter(new FileWriter(new File(FileUtility.getTestMediaPath() + tuneName + ".abc")));
 
         // Begin Writing File Header.
         fileOut.write("X:0\n");

@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import utilities.FileUtility;
 import utilities.MathUtility;
 import utilities.SoundUtility;
 
@@ -39,17 +40,8 @@ public class PureProcessor
         String totalTune = "";
         SoundUtility.signalToFile(tuneEntry);
         final String txtName = tuneEntry.getName().replace(".wav", ".txt");
-        String directoryPath = "";
         
-        String OS = System.getProperty("os.name").toLowerCase();
-        if(OS.indexOf("win") >= 0) {
-        	directoryPath = "C:\\Users\\David\\git\\AMT-Desktop\\AMT\\src\\notevalues\\";
-        } else if(OS.indexOf("mac") >= 0) {
-        	directoryPath = "/Users/davidjones/Automatic Music Transcription/src/notevalues/";
-        }
-        
-        
-        final float[] myData = SoundUtility.fileToArray(new File(directoryPath + txtName));
+        final float[] myData = SoundUtility.fileToArray(new File(FileUtility.getNoteValuePath() + txtName));
 
         final int arrayIncrement = 4096;
         int loopGuard = 0;

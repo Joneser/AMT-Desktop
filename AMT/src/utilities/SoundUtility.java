@@ -22,8 +22,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import core.IncProcessor;
 
-
-
 /**
  * 
  * @author davidjones
@@ -45,15 +43,8 @@ public class SoundUtility
         inputStream.read(buffer, 0, numBytes);
 
         final String newFile = myFile.getName().replace(".wav", ".txt");
-        String directoryPath = "";
         
-        String OS = System.getProperty("os.name").toLowerCase();
-        if(OS.indexOf("win") >= 0) {
-        	directoryPath = "C:\\Users\\David\\git\\AMT-Desktop\\AMT\\src\\notevalues\\";
-        } else if(OS.indexOf("mac") >= 0) {
-        	directoryPath = "/Users/davidjones/Automatic Music Transcription/src/notevalues/";
-        }
-        final BufferedWriter fileOut = new BufferedWriter(new FileWriter(new File(directoryPath + newFile)));
+        final BufferedWriter fileOut = new BufferedWriter(new FileWriter(new File(FileUtility.getNoteValuePath() + newFile)));
         final ByteBuffer myBB = ByteBuffer.wrap(buffer);
         myBB.order(ByteOrder.LITTLE_ENDIAN);
         int limit = myBB.limit(); // bytes in buffer

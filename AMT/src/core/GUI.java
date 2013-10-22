@@ -29,6 +29,8 @@ import javax.swing.JTextArea;
 import javax.swing.LayoutStyle;
 import javax.swing.WindowConstants;
 
+import utilities.FileUtility;
+
 import abc.midi.TunePlayer;
 import abc.notation.Tune;
 import abc.parser.TuneBook;
@@ -39,6 +41,7 @@ import abc.ui.swing.JScoreComponent;
  * @author davidjones
  *
  */
+@SuppressWarnings("serial")
 public class GUI extends javax.swing.JFrame
 {
 	private static final Logger LOGGER = Logger.getLogger(GUI.class.getName());
@@ -73,15 +76,8 @@ public class GUI extends javax.swing.JFrame
      * @throws IOException
      */
     public GUI() throws FileNotFoundException, IOException
-    {
-    	
-    	String OS = System.getProperty("os.name").toLowerCase();
-    	// Set directory depending on OS       
-		if (OS.indexOf("win") >= 0) {
-			directory = "C:\\Users\\David\\git\\AMT-Desktop\\AMT\\src\\testmedia";
-		} else if (OS.indexOf("mac") >= 0) {
-			directory = "/Users/davidjones/Automatic Music Transcription/src/examples/Media";
-		} 
+    {    	
+		directory = FileUtility.getTestMediaPath();
     	
         initComponents();
 
