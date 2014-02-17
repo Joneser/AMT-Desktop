@@ -99,6 +99,7 @@ p {
 
 footer p {
   color: #f2f2f2;
+  margin-bottom: 0;
 }
 
 a {
@@ -266,6 +267,12 @@ Full-Width Styles
   position: relative;
   max-width: 640px;
   padding: 20px 10px;
+  margin: 0 auto;
+}
+
+.inner-footer {
+  position: relative;
+  max-width: 640px;
   margin: 0 auto;
 }
 
